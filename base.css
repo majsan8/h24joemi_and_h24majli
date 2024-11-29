@@ -1,0 +1,208 @@
+:root {
+  --bg: white;
+  --clr: black;
+  --border-width: 2px;
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/poppins-v20-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  src: url('./fonts/poppins-v20-latin-800.woff2') format('woff2');
+}
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--bg);
+  color: var(--clr);
+  font-family: 'Poppins';
+  font-size: 62.5%;
+  font-weight: 400;
+  line-height: 1.6;
+  padding-block-end: 2rem;
+  overflow-x: hidden;
+}
+header {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-block-start: 8rem;
+  padding-block-end: 2rem;
+  padding-inline: 1rem;
+  text-align: center;
+  position: relative;
+}
+header * {
+  user-select: none;
+}
+header,
+main {
+  width: clamp(20rem, 80vw, 120rem);
+  margin: 0 auto;
+}
+h1 {
+  position: relative;
+  display: inline;
+  font-size: 4rem;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+h1:hover {
+  -webkit-text-fill-color: var(--bg);
+}
+h1::after {
+  content: "Range: 500px to 767px";
+  position: absolute;
+  top: -1rem;
+  right: 0;
+  font-size: 1rem;
+  text-transform: none;
+  padding-left: 1rem;
+  -webkit-text-fill-color: var(--clr);
+  -webkit-text-stroke: initial;
+}
+h1 span {
+  -webkit-text-fill-color: var(--bg);
+  -webkit-text-stroke: 2px var(--clr);
+}
+h1 span:hover {
+  -webkit-text-fill-color: var(--clr);
+}
+h1::first-letter {
+  letter-spacing: 5px;
+}
+header p {
+  max-width: 50ch;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+header div {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1rem;
+}
+main {
+  box-shadow: inset 0 0 0 var(--border-width) var(--clr);
+  overflow: hidden;
+}
+main > div:not(:first-child) {
+  margin-block-start: 5rem;
+}
+*[class] > * {
+  padding-block: 0.6rem;
+  border: var(--border-width) solid var(--clr);
+  border-radius: 0;
+}
+main *[class] > *:hover {
+  background-color: var(--clr);
+  color: var(--bg);
+  cursor: pointer;
+}
+main p {
+  font-size: 2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+}
+outofrange {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  opacity: 0;
+  background-color: var(--clr) !important;
+}
+tonarrow,
+towide {
+  display: block;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  white-space: nowrap;
+  opacity: 0;
+  font-size: clamp(5rem, 20vw, 19rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--bg) !important;
+  -webkit-text-fill-color: var(--clr);
+}
+tonarrow {
+  -webkit-text-stroke: 2px var(--bg);
+}
+towide {
+  -webkit-text-stroke: 4px var(--bg);
+}
+.sizeAlert {
+  font-weight: bold;
+  color: black;
+}
+#run-button {
+  background-color: white;
+  cursor: pointer;
+}
+#run-button:hover {
+  background-color: #2D5;
+}
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 6rem;
+  }
+  h1::after {
+    content: "Range: 768px to 1023px";
+  }
+  header p {
+    font-size: 1.4rem;
+  }
+  *[class] > * {
+    padding-block: 1.5rem;
+  }
+  main p {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  h1::after {
+    content: "Range: 1024px to 1280px";
+  }
+}
+
+@media screen and (max-width: 499px) {
+  outofrange {
+    z-index: 1;
+  }
+  outofrange,
+  tonarrow {
+    opacity: 1;
+  }
+}
+@media screen and (min-width: 1281px) {
+  outofrange {
+    z-index: 1;
+  }
+  outofrange,
+  towide {
+    opacity: 1;
+  }
+}

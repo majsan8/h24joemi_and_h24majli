@@ -1,0 +1,28 @@
+/*
+---GRID-AREA---
+Instructions
+All CSS declarations and media queries in this
+file should strictly target the "grid-area" div
+and its content in the index.html file.
+
+You're limited to the below stated:
+--------------------------
+Mandatory declaration
+¤ display: grid;                            | Only grid
+--------------------------
+Permitted media queries
+¤ @media screen and (min-width: 768px) {    |
+¤ @media screen and (min-width: 1024px) {   |
+--------------------------
+Permitted properties
+¤ display                                   | Only grid
+¤ font-weight                               |
+¤ grid-area                                 |
+¤ grid-gap                                  |
+¤ grid-template-areas                       |
+¤ grid-template-columns                     |
+¤ place-content                             |
+--------------------------
+
+Student CSS below the line
+-------------------------- */
